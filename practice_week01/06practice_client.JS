@@ -192,6 +192,8 @@ class TrunkedBodyParser{
     }
 }
 
+}
+
 void async function(){
     let request = new Request({
         method:"POST",
@@ -203,13 +205,9 @@ void async function(){
         },
         body:{
             name:"winter"
-        }
+        },
     });
 
     let response = await request.send();
     console.log(response);
 }();
-    
-    
-
-
