@@ -9,13 +9,13 @@ class Request{
         this.body = options.body ||{};
         this.headers = options.headers || {};
         if(!this.headers["Content-Type"]){
-            this.heasers["Content-Type"] = "application/x-www-form-urlencoded";
+            this.headers["Content-Type"] = "application/x-www-form-urlencoded";
         }
 
         if(this.headers["Content-Type"] === "application/json")
             this.bodyText = JSON.stringify(this.body);
         else if(this.headers["Content-Type"] === "application/x-www-form-urlencoded")
-            this.bodyText = Object.keys(this.body).map(key => `${key}=${encodeURIComponent(this.body[key])}`).json('&');
+            this.bodyText = Object.keys(this.body).map(key => `${key}=${encodeURIComponent(this.body[key])}`).join('&');
 
             this.headers["Content-Length"] = this.bodyText.length;
     }
@@ -50,14 +50,13 @@ class Request{
     }
 
     toString(){
-        return`${this.method} ${this.path} HTTP/1.1\r
-    ${Object.keys(this.headers).map(hey => `${key}:${this.headers[key]}`).json('\r\n')}\r
-    \r
-    }
-    ${this.bodyText}`
+        return`${this.method} ${this.path} HTTP/1.1\r\n${Object.keys(this.headers)
+         .map(key => `${key}:${this.headers[key]}`)
+         .join('\r\n')}\r\n\r\n${this.bodyText}`
     } 
+ } 
 
-}
+
 
 class ResponseParser{
     constructor(){
