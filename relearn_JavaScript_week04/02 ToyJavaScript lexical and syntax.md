@@ -1,4 +1,6 @@
 # Defining JavaScript lexical and syntax with production
+
+<
 InputElement ::= WhiteSpace | LineTerminator | Comment |Token
 
 WhiteSpace ::= " " |"  "
@@ -16,4 +18,4 @@ Identifier ::= IdentifierStart | IdentifierPart
 IdentifierStart ::= "$" | "_" | UnicodeIDStart
 IdentifierPart ::= UnicodeIDContinue
 Punctuator ::= "+" | "-" | "*" | "/" | "{" | "}" | "(" | ")" | "=>" ...
-
+>
