@@ -6,7 +6,6 @@ export class ExecutionContext {
         this.realm = realm
     }
 }
-
 export class EnvironmentRecord {
     constructor(outer) {
         this.outer = outer;
@@ -18,7 +17,6 @@ export class EnvironmentRecord {
     get(name) {
         if (this.variables.has(name)) {
             return this.variables.get(name);
-
         } else if (this.outer) {
             return this.outer.get(name);
         } else {
@@ -35,7 +33,6 @@ export class EnvironmentRecord {
         }
     }
 }
-
 export class ObjectEnvironmentRecord {
     constructor(object, outer) {
         this.object = object;
@@ -51,7 +48,6 @@ export class ObjectEnvironmentRecord {
         this.object.set(name, value);
     }
 }
-
 export class Reference {
     constructor(object, property) {
         this.object = object;
@@ -64,7 +60,6 @@ export class Reference {
         return this.object.get(this.property);
     }
 }
-
 export class Realm {
     constructor() {
         this.global = new Map(),
@@ -97,10 +92,8 @@ export class JSValue {
             return "symbol";
         }
         return "undefined";
-
     }
 }
-
 export class JSNumber extends JSValue {
     constructor(value) {
         super();
@@ -120,7 +113,6 @@ export class JSNumber extends JSValue {
     toNumber() {
         return this;
     }
-
     toBoolean() {
         if (new Float64Array(this.memory)[0] === 0) {
             return new JSBoolean(false);
@@ -130,7 +122,6 @@ export class JSNumber extends JSValue {
         }
     }
 }
-
 export class JSString extends JSValue {
     constructor(characters) {
         super();
@@ -155,7 +146,6 @@ export class JSBoolean extends JSValue {
     constructor(value) {
         super();
         this.value = value || false;
-
     }
     toNumber() {
         if (this.value)
@@ -186,7 +176,6 @@ export class JSObject extends JSValue {
             configurable: true,
             writeable: true
         })
-
     }
     get(name) {
         return this.getProperty(name).value;
@@ -204,21 +193,17 @@ export class JSObject extends JSValue {
         return this.prototype;
     }
 }
-
 export class JSNull extends JSValue {
     toNumber() {
         return new JSNumber(0);
     }
     toString() {
         return new JSString(["n", "u", "l", "l"]);
-
     }
     toBoolean() {
         return new Boolean(false);
     }
-
 }
-
 export class JSUndefined extends JSValue {
     toNumber() {
         return new JSNumber(NaN);
@@ -230,14 +215,12 @@ export class JSUndefined extends JSValue {
         return new Boolean(false);
     }
 }
-
 export class JSSymbol extends JSValue {
     constructor(name) {
         super();
         this.name = name || "";
     }
 }
-
 export class CompletionRecord {
     constructor(type, value, target) {
         this.type = type || "normal";

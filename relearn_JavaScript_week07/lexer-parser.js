@@ -54,7 +54,7 @@ export function* scan(str) {
       MultiLineComment: /\/\*(?:[^*]|\*[^\/])*\*\//,
       Token: /<Literal>|<Keywords>|<Identifier>|<Punctuator>/,
       Literal: /<NumberLiteral>|<BooleanLiteral>|<StringLiteral>|<NullLiteral>/,
-      Keywords: /if|else|for|function|var|let|const|get|set|new|while/,
+      Keywords: /if|else|for|function|var|let|const|get|set|new|continue|break/,
       Identifier: /[$_a-zA-Z][0-9a-zA-Z$_]*/,
       Punctuator:
         /<BracketsPunctuator>|\+|\-|\*|\/|\+\+|\-\-|\+=|\-=|\.|,|;|\:|=|==|===|!|!=|!==|@|&&|&|\|\||\||\]|\[|=>|\?|\>|\</,
