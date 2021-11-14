@@ -1,12 +1,20 @@
 var path = require('path');
 module.exports = {
-  entry: './main.js',
+  entry: {
+    main: './index.js',
+    animation: './animation-demo.js',
+    gesture: './gesture.js'
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js'
+  },
   devServer:{
     static: {
-      directory: path.join(__dirname, 'dist'),
-      // directory: path.join(__dirname, './main.html'),
+      directory: path.join(__dirname, 'dist')
     },
   },
+  
   module:{
     rules:[
       {
@@ -21,5 +29,6 @@ module.exports = {
       }
     ]
   },
-  mode:'development'  
+  mode:'development'  //开发者模式，发布时改成production
 }
+
