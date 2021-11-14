@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      div{
+        width: 150px;
+        height: 150px;
+      }
+      .movable__div{
+        background-color: lightblue;
+      }
+      .compare__div{
+        background-color: lightgreen;
+        transform: translateX(0);
+        transition: transform ease 20s;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="movable__div" id="el"></div>
+    <div class="compare__div" id="el2"></div>
+    <button id="btn-pause">pause</button>
+    <button id="btn-resume">resume</button>
+    <script src="./animation.js"></script>
+  </body>
+</html>
