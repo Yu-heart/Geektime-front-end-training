@@ -1,5 +1,5 @@
 # **GeekTime** Front-end advanced training camp
-## 01. How browsers work(URL->Bitmap)
+## 01. 浏览器工作原理 【How browsers work(URL->Bitmap)】
 ### Overview of URL->Bitmap
 URL->`http`->HTML->`parse`->DOM->`CSS computing`->DOM with CSS->`layout`->DOM with position->`render`->Bitmap
 ### 状态机 | 有限状态机
@@ -55,3 +55,9 @@ ISO-OSI七层网络模型
         * Status text  
     * Header  
     * Body  
+## 02. 重学**Javascript**  
+## 03. 组件化 (**Componentization**) 
+## 04. 工具链(**Toolchain**)  
+## 05. 发布系统(**Publishing system**)  
+## 06. 重学CSS
+## 07. 重学HTML、浏览器API
